@@ -1,11 +1,14 @@
 package cooksys.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,6 +26,9 @@ public class Tweet {
 	@JoinColumn(name="author")
 	@JsonIgnore
 	private User author;
+	
+	@ManyToMany(mappedBy = "tweets")
+	private List<Hash> hashs;
 	
 	@Column(nullable = false)
 	private String posted;
@@ -82,6 +88,14 @@ public class Tweet {
 
 	public void setRepostOf(String repostOf) {
 		this.repostOf = repostOf;
+	}
+
+	public List<Hash> getHashs() {
+		return hashs;
+	}
+
+	public void setHashs(List<Hash> hashs) {
+		this.hashs = hashs;
 	}
 	
 	
