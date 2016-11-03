@@ -1,12 +1,14 @@
 package cooksys.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -45,17 +47,19 @@ public class User {
 	@Column(nullable = false)
 	private boolean include;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "user")
-	private List<Tweet> tweet;
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "user")
+//	private List<Tweet> tweet;
 	
-	@JsonIgnore
+//	@JsonIgnore
+	
 	@ManyToMany(mappedBy = "following")
-	private List<User> followers;
+	private Set<User> followers;
 	
-	@JsonIgnore
+//	@JsonIgnore
+	
 	@ManyToMany(mappedBy = "followers")
-	private List<User> followings;
+	private Set<User> followings;
 
 	public long getId() {
 		return id;
@@ -129,27 +133,27 @@ public class User {
 		this.include = include;
 	}
 
-	public List<Tweet> getTweets() {
-		return tweet;
-	}
+//	public List<Tweet> getTweets() {
+//		return tweet;
+//	}
+//
+//	public void setTweets(List<Tweet> tweet) {
+//		this.tweet = tweet;
+//	}
 
-	public void setTweets(List<Tweet> tweet) {
-		this.tweet = tweet;
-	}
-
-	public List<User> getFollowers() {
+	public Set<User> getFollowers() {
 		return followers;
 	}
 
-	public void setFollowers(List<User> followers) {
+	public void setFollowers(Set<User> followers) {
 		this.followers = followers;
 	}
 
-	public List<User> getFollowings() {
+	public Set<User> getFollowings() {
 		return followings;
 	}
 
-	public void setFollowings(List<User> followings) {
+	public void setFollowings(Set<User> followings) {
 		this.followings = followings;
 	}
 
