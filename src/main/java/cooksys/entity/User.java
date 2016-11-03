@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 	
 	@Id
@@ -47,19 +47,16 @@ public class User {
 	@Column(nullable = false)
 	private boolean include;
 	
+	@OneToMany(mappedBy = "author")
 //	@JsonIgnore
-//	@OneToMany(mappedBy = "user")
-//	private List<Tweet> tweet;
+	private List<Tweet> tweets;
 	
-//	@JsonIgnore
-	
-	@ManyToMany(mappedBy = "following")
-	private Set<User> followers;
-	
-//	@JsonIgnore
-	
-	@ManyToMany(mappedBy = "followers")
-	private Set<User> followings;
+	@ManyToMany(mappedBy="follower")
+	private List<User> followed;
+	   
+	@ManyToMany
+	@JoinTable(name="following_followers")
+	private List<User> follower;
 
 	public long getId() {
 		return id;
@@ -133,28 +130,30 @@ public class User {
 		this.include = include;
 	}
 
-//	public List<Tweet> getTweets() {
-//		return tweet;
-//	}
-//
-//	public void setTweets(List<Tweet> tweet) {
-//		this.tweet = tweet;
-//	}
-
-	public Set<User> getFollowers() {
-		return followers;
+	public List<User> getFollowed() {
+		return followed;
 	}
 
-	public void setFollowers(Set<User> followers) {
-		this.followers = followers;
+	public void setFollowed(List<User> followed) {
+		this.followed = followed;
 	}
 
-	public Set<User> getFollowings() {
-		return followings;
+	public List<User> getFollower() {
+		return follower;
 	}
 
-	public void setFollowings(Set<User> followings) {
-		this.followings = followings;
+	public void setFollower(List<User> follower) {
+		this.follower = follower;
 	}
+
+	public List<Tweet> getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(List<Tweet> tweets) {
+		this.tweets = tweets;
+	}
+
+
 
 }
