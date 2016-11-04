@@ -16,7 +16,7 @@ import cooksys.service.UserService;
 @RequestMapping("users")
 public class UserController {
 
-    UserService userService;
+    private UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -33,7 +33,7 @@ public class UserController {
     }
     
     @PostMapping
-    public void create(@RequestBody User user) {
+    public void add(@RequestBody User user) {
         userService.add(user);
     }
     

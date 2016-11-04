@@ -127,5 +127,11 @@ public class User {
 		this.following = following;
 	}
 
-	
+	public Credential getCredentials() {
+        return credential;
+    }
+
+    public void setCredentials(Credential credential) {
+        this.credential = credential;
+    }
 }

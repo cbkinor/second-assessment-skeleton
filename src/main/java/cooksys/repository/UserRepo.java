@@ -1,10 +1,13 @@
 package cooksys.repository;
 
+import cooksys.entity.Credential;
 import cooksys.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
     User findByUsername(String username);
+
+    User findByCredentials(Credential credential);
 
 }

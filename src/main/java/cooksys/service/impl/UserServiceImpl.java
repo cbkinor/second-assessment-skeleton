@@ -7,16 +7,19 @@ import org.springframework.stereotype.Service;
 import cooksys.entity.Credential;
 import cooksys.entity.Profile;
 import cooksys.entity.User;
+import cooksys.repository.ProfileRepo;
 import cooksys.repository.UserRepo;
 import cooksys.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    UserRepo userRepo;
+    private UserRepo userRepo;
+    private ProfileRepo profileRepo;
 
-    public UserServiceImpl(UserRepo userRepo) {
+    public UserServiceImpl(UserRepo userRepo, ProfileRepo profileRepo) {
         this.userRepo = userRepo;
+        this.profileRepo = profileRepo;
     }
 
     @Override
@@ -34,23 +37,23 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findByUsername(username);
 	}
 
-	    @Override
-	    public User add(User user) {
-	        return userRepo.saveAndFlush(user);
-	    }
+    @Override
+    public User add(User user) {
+        return userRepo.saveAndFlush(user);
+    }
 
-		@Override
-		public User patch(Credential credentials, Profile Profile) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	@Override
+	public User patch(Credential credential, Profile profile) {
+		User user = userRepo.findByCredentials(credential);
+		user.setProfile(profile);
+		return userRepo.saveAndFlush(user);
+	}
 
-		@Override
-		public User delete(Credential credentials) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
+	@Override
+	public User delete(Credential credentials) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 
