@@ -30,8 +30,8 @@ public class User {
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
 	private Date joined;
 	
-	@Column(nullable = false)
-	private boolean include;
+	@Column(insertable = false, updatable = true, nullable = false)
+	private boolean deleted;
 	
 	 @OneToOne
     @JoinColumn(nullable = false)
@@ -46,12 +46,12 @@ public class User {
 	
 	@ManyToMany
 	@JoinTable(name = "following_followers",
-		joinColumns = @JoinColumn(name = "followed"),
+		joinColumns = @JoinColumn(name = "followers"),
 		inverseJoinColumns = @JoinColumn(name = "following"))
 	@JsonIgnore
-	private List<User> followed;
+	private List<User> followers;
 	   
-	@ManyToMany(mappedBy = "followed")
+	@ManyToMany(mappedBy = "followers")
 	@JsonIgnore
 	private List<User> following;
 
@@ -80,11 +80,11 @@ public class User {
 	}
 
 	public boolean isInclude() {
-		return include;
+		return deleted;
 	}
 
 	public void setInclude(boolean include) {
-		this.include = include;
+		this.deleted = include;
 	}
 
 	public Profile getProfile() {
@@ -111,12 +111,12 @@ public class User {
 		this.tweets = tweets;
 	}
 
-	public List<User> getFollowed() {
-		return followed;
+	public List<User> getFollowers() {
+		return followers;
 	}
 
-	public void setFollowed(List<User> followed) {
-		this.followed = followed;
+	public void setFollowers(List<User> followed) {
+		this.followers = followed;
 	}
 
 	public List<User> getFollowing() {

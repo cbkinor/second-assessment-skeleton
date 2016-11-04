@@ -18,10 +18,10 @@ public class UserService {
 		this.tweetRepo = tweetRepo;
 	}
 	
-//	public void addTweet(User user, Tweet tweet) {
-//		user.getTweets().add(tweet);
-//		userRepo.saveAndFlush(user);
-//	}
+	public void addTweet(User user, Tweet tweet) {
+		user.getTweets().add(tweet);
+		userRepo.saveAndFlush(user);
+	}
 	
 	public User get(Long id) {
 		return userRepo.getOne(id);
