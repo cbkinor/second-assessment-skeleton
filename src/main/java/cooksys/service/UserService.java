@@ -1,34 +1,27 @@
 package cooksys.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import cooksys.entity.Tweet;
+import cooksys.entity.Credential;
+import cooksys.entity.Profile;
 import cooksys.entity.User;
-import cooksys.repository.TweetRepo;
-import cooksys.repository.UserRepo;
+
 
 @Service
-public class UserService {
+public interface UserService {
 
-	private UserRepo userRepo;
-	private TweetRepo tweetRepo;
+	public User getById(Long id);
 	
-	public UserService(UserRepo userRepo, TweetRepo tweetRepo) {
-		this.userRepo = userRepo;
-		this.tweetRepo = tweetRepo;
-	}
+	User getByUsername(String username);
 	
-	public void addTweet(User user, Tweet tweet) {
-		user.getTweets().add(tweet);
-		userRepo.saveAndFlush(user);
-	}
-	
-	public User get(Long id) {
-		return userRepo.getOne(id);
-	}
-	
-	public void add(User user) {
-		userRepo.saveAndFlush(user);
-	}
+	public List<User> getAll();
+
+    public User add(User user);
+
+    public User patch(Credential credentials, Profile Profile);
+
+    public User delete(Credential credentials);
 	
 }

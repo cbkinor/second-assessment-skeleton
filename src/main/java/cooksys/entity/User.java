@@ -27,7 +27,7 @@ public class User {
 	@Column(updatable = false, nullable = false)
 	private String username;
 	
-	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = true)
 	private Date joined;
 	
 	@Column(insertable = false, updatable = true, nullable = false)
