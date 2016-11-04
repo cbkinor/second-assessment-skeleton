@@ -1,5 +1,6 @@
 package cooksys.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,8 +31,8 @@ public class Tweet {
 	@ManyToMany(mappedBy = "tweets")
 	private List<Hash> hashs;
 	
-	@Column(nullable = false)
-	private String posted;
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
+	private Date posted;
 	
 	@Column
 	private String content;
@@ -66,11 +67,11 @@ public class Tweet {
 		this.hashs = hashs;
 	}
 
-	public String getPosted() {
+	public Date getPosted() {
 		return posted;
 	}
 
-	public void setPosted(String posted) {
+	public void setPosted(Date posted) {
 		this.posted = posted;
 	}
 

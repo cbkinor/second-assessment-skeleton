@@ -2,8 +2,6 @@ package cooksys.entity;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,15 +42,18 @@ public class User {
     private Credential credential;
 	
 	@OneToMany(mappedBy = "author")
-//	@JsonIgnore
 	private List<Tweet> tweets;
 	
-	@ManyToMany(mappedBy="follower")
+	@ManyToMany
+	@JoinTable(name = "following_followers",
+		joinColumns = @JoinColumn(name = "followed"),
+		inverseJoinColumns = @JoinColumn(name = "following"))
+	@JsonIgnore
 	private List<User> followed;
 	   
-	@ManyToMany
-	@JoinTable(name="following_followers")
-	private List<User> follower;
+	@ManyToMany(mappedBy = "followed")
+	@JsonIgnore
+	private List<User> following;
 
 	public long getId() {
 		return id;
@@ -118,12 +119,12 @@ public class User {
 		this.followed = followed;
 	}
 
-	public List<User> getFollower() {
-		return follower;
+	public List<User> getFollowing() {
+		return following;
 	}
 
-	public void setFollower(List<User> follower) {
-		this.follower = follower;
+	public void setFollowing(List<User> following) {
+		this.following = following;
 	}
 
 	

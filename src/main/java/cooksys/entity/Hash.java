@@ -1,5 +1,6 @@
 package cooksys.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,11 +26,11 @@ public class Hash {
 	@Column(updatable = false, nullable = false)
 	private String label;
 	
-	@Column(updatable = false, nullable = false)
-	private String firstUsed;
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
+	private Date firstUsed;
 	
-	@Column(nullable = false)
-	private String lastUsed;
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = true, nullable = false)
+	private Date lastUsed;
 	
 	@ManyToMany
 	@JoinTable(name = "hash_tweets",
@@ -54,19 +55,19 @@ public class Hash {
 		this.label = label;
 	}
 
-	public String getFirstUsed() {
+	public Date getFirstUsed() {
 		return firstUsed;
 	}
 
-	public void setFirstUsed(String firstUsed) {
+	public void setFirstUsed(Date firstUsed) {
 		this.firstUsed = firstUsed;
 	}
 
-	public String getLastUsed() {
+	public Date getLastUsed() {
 		return lastUsed;
 	}
 
-	public void setLastUsed(String lastUsed) {
+	public void setLastUsed(Date lastUsed) {
 		this.lastUsed = lastUsed;
 	}
 
