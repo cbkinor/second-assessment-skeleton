@@ -58,6 +58,14 @@ public class Tweet {
 		this.author = author;
 	}
 
+	public List<Hash> getHashs() {
+		return hashs;
+	}
+
+	public void setHashs(List<Hash> hashs) {
+		this.hashs = hashs;
+	}
+
 	public String getPosted() {
 		return posted;
 	}
@@ -90,14 +98,6 @@ public class Tweet {
 		this.repostOf = repostOf;
 	}
 
-	public List<Hash> getHashs() {
-		return hashs;
-	}
-
-	public void setHashs(List<Hash> hashs) {
-		this.hashs = hashs;
-	}
-	
 	
 
 }

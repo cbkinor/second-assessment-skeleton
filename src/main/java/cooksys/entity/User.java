@@ -1,5 +1,6 @@
 package cooksys.entity;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -8,9 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,26 +29,19 @@ public class User {
 	@Column(updatable = false, nullable = false)
 	private String username;
 	
-	@Column(nullable = false)
-	private String joined;
-	
-	@Column
-	private String firstName;
-	
-	@Column
-	private String lastName;
-	
-	@Column(nullable = false)
-	private String email;
-	
-	@Column
-	private String phone;
-	
-	@Column(nullable = false)
-	private String password;
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
+	private Date joined;
 	
 	@Column(nullable = false)
 	private boolean include;
+	
+	 @OneToOne
+    @JoinColumn(nullable = false)
+    private Profile profile;
+	 
+	 @OneToOne
+    @JoinColumn(nullable = false)
+    private Credential credential;
 	
 	@OneToMany(mappedBy = "author")
 //	@JsonIgnore
@@ -74,52 +70,12 @@ public class User {
 		this.username = username;
 	}
 
-	public String getJoined() {
+	public Date getJoined() {
 		return joined;
 	}
 
-	public void setJoined(String joined) {
+	public void setJoined(Date joined) {
 		this.joined = joined;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public boolean isInclude() {
@@ -128,6 +84,30 @@ public class User {
 
 	public void setInclude(boolean include) {
 		this.include = include;
+	}
+
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public Credential getCredential() {
+		return credential;
+	}
+
+	public void setCredential(Credential credential) {
+		this.credential = credential;
+	}
+
+	public List<Tweet> getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(List<Tweet> tweets) {
+		this.tweets = tweets;
 	}
 
 	public List<User> getFollowed() {
@@ -146,14 +126,5 @@ public class User {
 		this.follower = follower;
 	}
 
-	public List<Tweet> getTweets() {
-		return tweets;
-	}
-
-	public void setTweets(List<Tweet> tweets) {
-		this.tweets = tweets;
-	}
-
-
-
+	
 }
