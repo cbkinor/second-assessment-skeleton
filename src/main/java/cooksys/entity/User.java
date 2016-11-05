@@ -95,14 +95,6 @@ public class User {
 		this.profile = profile;
 	}
 
-	public Credential getCredential() {
-		return credential;
-	}
-
-	public void setCredential(Credential credential) {
-		this.credential = credential;
-	}
-
 	public List<Tweet> getTweets() {
 		return tweets;
 	}

@@ -18,7 +18,7 @@ public interface UserService {
 	
 	public List<User> getAll();
 
-    public User add(User user);
+    public User create(User user);
 
     public User patch(Credential credentials, Profile Profile);
 
