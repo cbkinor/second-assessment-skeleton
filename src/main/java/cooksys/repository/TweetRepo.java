@@ -6,4 +6,6 @@ import cooksys.entity.Tweet;
 
 public interface TweetRepo extends JpaRepository <Tweet, Long> {
 
+	public Tweet findById(long id);
+	
 }

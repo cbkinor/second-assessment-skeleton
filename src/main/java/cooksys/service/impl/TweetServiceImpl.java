@@ -31,7 +31,12 @@ public class TweetServiceImpl implements TweetService {
 	public Tweet create(Tweet tweet) {
 		tweet.setContent(tweet.getContent());
 		return tweetRepo.saveAndFlush(tweet);
-		
 	}
-
+	
+	@Override
+	public Tweet delete(Long id){
+		Tweet tweet = tweetRepo.findById(id);
+		tweet.setDeleted(true);
+		return tweetRepo.saveAndFlush(tweet);
+	}
 }

@@ -23,6 +23,9 @@ public class Tweet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(insertable = false, updatable = true, nullable = false)
+	private boolean deleted;
+	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="author")
 	@JsonIgnore
@@ -97,6 +100,14 @@ public class Tweet {
 
 	public void setRepostOf(String repostOf) {
 		this.repostOf = repostOf;
+	}
+
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 	
