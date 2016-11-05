@@ -27,4 +27,11 @@ public class TweetServiceImpl implements TweetService {
 		return tweetRepo.findAll();
 	}
 
+	@Override
+	public Tweet create(Tweet tweet) {
+		tweet.setContent(tweet.getContent());
+		return tweetRepo.saveAndFlush(tweet);
+		
+	}
+
 }

@@ -15,6 +15,8 @@ public interface TweetService {
 	public Tweet getById(Long id);
 
 	public List<Tweet> getAll();
+
+	public Tweet create(Tweet tweet);
 	
 	
 
