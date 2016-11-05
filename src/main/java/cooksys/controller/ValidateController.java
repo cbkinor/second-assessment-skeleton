@@ -7,7 +7,7 @@ import cooksys.service.ValidateService;
 
 
 @RestController
-@RequestMapping("credentials")
+@RequestMapping("validate")
 public class ValidateController {
 
 	ValidateService validateService;

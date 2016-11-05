@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import cooksys.entity.Hash;
+import cooksys.entity.HashTag;
 import cooksys.entity.Tweet;
-import cooksys.repository.HashRepo;
+import cooksys.repository.HashTagRepo;
 import cooksys.repository.TweetRepo;
 
 @Service

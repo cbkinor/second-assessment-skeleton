@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "hashes")
-public class Hash {
+public class HashTag {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
