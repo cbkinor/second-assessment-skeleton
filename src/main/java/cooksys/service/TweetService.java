@@ -1,5 +1,7 @@
 package cooksys.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import cooksys.entity.Hash;
@@ -10,7 +12,11 @@ import cooksys.repository.TweetRepo;
 @Service
 public interface TweetService {
 
-	public Tweet getTweet(Long id);
+	public Tweet getById(Long id);
+
+	public List<Tweet> getAll();
+	
+	
 
 
 }

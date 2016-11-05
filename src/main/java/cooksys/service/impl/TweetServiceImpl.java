@@ -1,5 +1,7 @@
 package cooksys.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import cooksys.entity.Tweet;
@@ -16,8 +18,13 @@ public class TweetServiceImpl implements TweetService {
 		}
 		
 	@Override
-	public Tweet getTweet(Long id) {
+	public Tweet getById(Long id) {
 		return tweetRepo.getOne(id);
+	}
+
+	@Override
+	public List<Tweet> getAll() {
+		return tweetRepo.findAll();
 	}
 
 }

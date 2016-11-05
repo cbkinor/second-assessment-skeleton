@@ -1,11 +1,14 @@
 package cooksys.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cooksys.entity.Tweet;
+import cooksys.entity.User;
 import cooksys.service.TweetService;
 
 @RestController
@@ -19,8 +22,14 @@ public class TweetController {
     }
     
     @GetMapping("/{id}")
-    public Tweet getTweet(@PathVariable Long id) {
-    	return this.tweetService.getTweet(id);
+    public Tweet getById(@PathVariable Long id) {
+    	return this.tweetService.getById(id);
     }
+    
+    @GetMapping
+    public List<Tweet> getAllTweets() {
+        return tweetService.getAll();
+    }
+    
     
 }
