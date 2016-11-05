@@ -51,9 +51,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User delete(User user) {
-		User deleteUser = userRepo.findByUsername(user.getUsername());
-		deleteUser.setDeleted(true);
+	public User delete(Credential credential) {
+		User user = userRepo.findByUsername(credential.getUsername());
+		user.setDeleted(true);
 		return userRepo.saveAndFlush(user);
 	}
 

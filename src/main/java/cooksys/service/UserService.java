@@ -22,6 +22,7 @@ public interface UserService {
 
     public User patch(Credential credential, Profile Profile);
 
-    public User delete(User user);
+    public User delete(Credential credential);
+
 	
 }
