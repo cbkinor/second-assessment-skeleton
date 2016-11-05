@@ -79,12 +79,12 @@ public class User {
 		this.joined = joined;
 	}
 
-	public boolean isInclude() {
+	public boolean isDeleted() {
 		return deleted;
 	}
 
-	public void setInclude(boolean include) {
-		this.deleted = include;
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 	public Profile getProfile() {
@@ -119,11 +119,13 @@ public class User {
 		this.following = following;
 	}
 
-	public Credential getCredentials() {
-        return credential;
-    }
+	public Credential getCredential() {
+		return credential;
+	}
 
-    public void setCredentials(Credential credential) {
-        this.credential = credential;
-    }
+	public void setCredential(Credential credential) {
+		this.credential = credential;
+	}
+
+	
 }

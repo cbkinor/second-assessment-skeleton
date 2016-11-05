@@ -8,6 +8,6 @@ public interface UserRepo extends JpaRepository<User, Long> {
 
     User findByUsername(String username);
 
-    User findByCredentials(Credential credential);
+    User findByCredential(Credential credential);
 
 }

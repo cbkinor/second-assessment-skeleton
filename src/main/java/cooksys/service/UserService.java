@@ -20,8 +20,8 @@ public interface UserService {
 
     public User create(User user);
 
-    public User patch(Credential credentials, Profile Profile);
+    public User patch(Credential credential, Profile Profile);
 
-    public User delete(Credential credentials);
+    public User delete(User user);
 	
 }
