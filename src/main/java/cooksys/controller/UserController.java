@@ -3,6 +3,7 @@ package cooksys.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,5 +38,9 @@ public class UserController {
         userService.create(user);
     }
     
+    @PatchMapping("/{username}")
+    public User patchUser(@PathVariable String username, @RequestBody User user) {
+    	return userService.patch(user.getCredentials(), user.getProfile());
+    }
     
 }

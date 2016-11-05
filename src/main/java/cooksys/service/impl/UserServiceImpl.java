@@ -14,8 +14,8 @@ import cooksys.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepo userRepo;
-    private ProfileRepo profileRepo;
+    UserRepo userRepo;
+    ProfileRepo profileRepo;
 
     public UserServiceImpl(UserRepo userRepo, ProfileRepo profileRepo) {
         this.userRepo = userRepo;
