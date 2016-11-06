@@ -15,12 +15,5 @@ public class ValidateServiceImpl implements ValidateService {
 		this.hashTagRepo = hasTagRepo;
 	}
 
-	@Override
-	public boolean hashTagExists(String hashTag) {
-		if(hashTagRepo.findHashTag(hashTag) == null) {
-			return false;
-		}
-		return true;
-	}
 
 }

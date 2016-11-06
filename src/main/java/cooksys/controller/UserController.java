@@ -50,4 +50,9 @@ public class UserController {
     	return userService.delete(credential);
     }
     
+    @PostMapping("/{username}/follow")
+    public void followUser(@PathVariable String username, @RequestBody Credential credential) {
+    	userService.followUser(username, credential);
+    }
+    
 }

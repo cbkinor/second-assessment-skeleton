@@ -10,13 +10,6 @@ public interface HashTagRepo extends JpaRepository <HashTag, Long> {
 
 	List<HashTag> findAll();
 
-	HashTag findHashTag(String hashTag);
-
-//	Object findHashTag(String hashTag);
-
-	
-
-
 
 
 }

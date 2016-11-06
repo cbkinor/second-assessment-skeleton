@@ -24,5 +24,7 @@ public interface UserService {
 
     public User delete(Credential credential);
 
+	public void followUser(String username, Credential credential);
+
 	
 }
