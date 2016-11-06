@@ -10,10 +10,19 @@ import cooksys.service.ValidateService;
 public class ValidateServiceImpl implements ValidateService {
 	
 	private HashTagRepo hashTagRepo;
+	private UserRepo userRepo;
 	
-	public ValidateServiceImpl(HashTagRepo hasTagRepo){
+	public ValidateServiceImpl(HashTagRepo hasTagRepo, UserRepo userRepo){
 		this.hashTagRepo = hasTagRepo;
+		this.userRepo = userRepo;
 	}
+
+//	@Override
+//	public boolean usernameExists(String username) {
+//		if (userRepo.doesExist(username)==null)
+//			return true;
+//		return false;
+//	}
 
 
 }
