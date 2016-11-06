@@ -30,6 +30,8 @@ public interface UserService {
 
 	public List<User> getFollowers(String username);
 
+	public List<User> getFollowing(String username);
+
 	
 
 	
