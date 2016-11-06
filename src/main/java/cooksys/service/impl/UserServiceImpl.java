@@ -61,11 +61,24 @@ public class UserServiceImpl implements UserService {
 	public void followUser(String username, Credential credential) {
 		User user = userRepo.findByUsername(credential.getUsername());
 		User followUser = userRepo.findByUsername(username);
+		
 		user.getFollowing().add(followUser);
 		followUser.getFollowers().add(user);
+		
 		userRepo.saveAndFlush(followUser);
 		userRepo.saveAndFlush(user);
+	}
+
+	@Override
+	public void unfollowUser(String username, Credential credential) {
+		User user = userRepo.findByUsername(credential.getUsername());
+		User followUser = userRepo.findByUsername(username);
 		
+		user.getFollowing().remove(followUser);
+		followUser.getFollowers().remove(user);
+		
+		userRepo.saveAndFlush(followUser);
+		userRepo.saveAndFlush(user);
 	}
 
 }

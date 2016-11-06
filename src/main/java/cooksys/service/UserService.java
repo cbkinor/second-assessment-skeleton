@@ -26,5 +26,7 @@ public interface UserService {
 
 	public void followUser(String username, Credential credential);
 
+	public void unfollowUser(String username, Credential credential);
+
 	
 }
