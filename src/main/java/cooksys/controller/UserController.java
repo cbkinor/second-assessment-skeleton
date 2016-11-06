@@ -60,4 +60,9 @@ public class UserController {
     	userService.unfollowUser(username, credential);
     }
     
+    @GetMapping("/{username}/followers")
+    public List<User> getFollowers(@PathVariable String username) {
+    	return userService.getFollowers(username);
+    }
+    
 }

@@ -28,5 +28,9 @@ public interface UserService {
 
 	public void unfollowUser(String username, Credential credential);
 
+	public List<User> getFollowers(String username);
+
+	
+
 	
 }

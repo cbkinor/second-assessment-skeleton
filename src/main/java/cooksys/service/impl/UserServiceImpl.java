@@ -80,6 +80,12 @@ public class UserServiceImpl implements UserService {
 		userRepo.saveAndFlush(followUser);
 		userRepo.saveAndFlush(user);
 	}
+	
+	@Override
+	public List<User> getFollowers(String username) {
+		User user = userRepo.findByUsername(username);
+		return user.getFollowers();
+	}
 
 }
 
