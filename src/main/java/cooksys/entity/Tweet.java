@@ -32,7 +32,7 @@ public class Tweet {
 	private User author;
 	
 	@ManyToMany(mappedBy = "tweets")
-	private List<HashTag> hashs;
+	private List<HashTag> hashTags;
 	
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
 	private Date posted;
@@ -63,11 +63,11 @@ public class Tweet {
 	}
 
 	public List<HashTag> getHashs() {
-		return hashs;
+		return hashTags;
 	}
 
-	public void setHashs(List<HashTag> hashs) {
-		this.hashs = hashs;
+	public void setHashs(List<HashTag> hashTags) {
+		this.hashTags = hashTags;
 	}
 
 	public Date getPosted() {

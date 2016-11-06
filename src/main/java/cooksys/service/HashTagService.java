@@ -10,5 +10,7 @@ import cooksys.entity.HashTag;
 public interface HashTagService {
 
 	public List<HashTag> getAll();
+	
+	
 
 }

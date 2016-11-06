@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "hashes")
+@Table(name = "hashtags")
 public class HashTag {
 
 	@Id
@@ -24,7 +24,7 @@ public class HashTag {
 	private long id;
 	
 	@Column(updatable = false, nullable = false)
-	private String label;
+	private String hashTag;
 	
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
 	private Date firstUsed;
@@ -47,12 +47,12 @@ public class HashTag {
 		this.id = id;
 	}
 
-	public String getLabel() {
-		return label;
+	public String getHashTag() {
+		return hashTag;
 	}
 
-	public void setLabel(String label) {
-		this.label = label;
+	public void setHashTag(String hashTag) {
+		this.hashTag = hashTag;
 	}
 
 	public Date getFirstUsed() {
@@ -78,4 +78,5 @@ public class HashTag {
 	public void setTweets(List<Tweet> tweets) {
 		this.tweets = tweets;
 	}
+
 }

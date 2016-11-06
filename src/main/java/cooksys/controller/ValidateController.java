@@ -10,9 +10,9 @@ import cooksys.service.ValidateService;
 @RequestMapping("validate")
 public class ValidateController {
 
-	ValidateService validateService;
+    ValidateService validateService;
 
-	public ValidateController(ValidateService validateService) {
+    public ValidateController(ValidateService validateService) {
         this.validateService = validateService;
     }
 }

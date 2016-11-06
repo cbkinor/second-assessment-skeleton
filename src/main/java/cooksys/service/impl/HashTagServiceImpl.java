@@ -11,15 +11,20 @@ import cooksys.service.HashTagService;
 @Service
 public class HashTagServiceImpl implements HashTagService {
 	
-	HashTagRepo hashRepo;
+	HashTagRepo hashTagRepo;
 	
 	public HashTagServiceImpl(HashTagRepo hashRepo) {
-		this.hashRepo = hashRepo;
+		this.hashTagRepo = hashTagRepo;
 	}
 
 	@Override
 	public List<HashTag> getAll() {
-		return hashRepo.getAll();
+		// TODO Auto-generated method stub
+		return hashTagRepo.findAll();
+		
+		
 	}
+
+	
 
 }

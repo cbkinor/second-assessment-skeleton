@@ -19,7 +19,9 @@ public class HashTagController {
     }
     
     @GetMapping
-    public List<HashTag> getHashTags() {
+    public List<HashTag> getHashTag() {
     	return service.getAll();
     }
+    
+    
 }
