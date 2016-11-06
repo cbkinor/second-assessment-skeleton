@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import cooksys.entity.Credential;
 import cooksys.entity.Profile;
+import cooksys.entity.Tweet;
 import cooksys.entity.User;
 import cooksys.repository.CredentialRepo;
 import cooksys.repository.UserRepo;
@@ -91,6 +92,11 @@ public class UserServiceImpl implements UserService {
 	public List<User> getFollowing(String username) {
 		User user = userRepo.findByUsername(username);
 		return user.getFollowing();
+	}
+
+	@Override
+	public List<Tweet> getTweets(String username) {
+		return userRepo.findByUsername(username).getTweets();
 	}
 
 }

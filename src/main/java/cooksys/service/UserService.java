@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import cooksys.entity.Credential;
 import cooksys.entity.Profile;
+import cooksys.entity.Tweet;
 import cooksys.entity.User;
 
 
@@ -31,6 +32,8 @@ public interface UserService {
 	public List<User> getFollowers(String username);
 
 	public List<User> getFollowing(String username);
+
+	public List<Tweet> getTweets(String username);
 
 	
 }
