@@ -33,6 +33,4 @@ public interface UserService {
 	public List<User> getFollowing(String username);
 
 	
-
-	
 }

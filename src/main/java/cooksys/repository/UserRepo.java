@@ -10,6 +10,4 @@ public interface UserRepo extends JpaRepository<User, Long> {
 
     User findByCredential(Credential credential);
 
-//    public User doesExist(String username);
-
 }

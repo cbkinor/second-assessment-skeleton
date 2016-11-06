@@ -17,12 +17,4 @@ public class ValidateServiceImpl implements ValidateService {
 		this.userRepo = userRepo;
 	}
 
-//	@Override
-//	public boolean usernameExists(String username) {
-//		if (userRepo.doesExist(username)==null)
-//			return true;
-//		return false;
-//	}
-
-
 }
