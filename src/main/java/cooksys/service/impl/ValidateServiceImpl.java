@@ -17,4 +17,11 @@ public class ValidateServiceImpl implements ValidateService {
 		this.userRepo = userRepo;
 	}
 
+	@Override
+	public boolean doesUsernameExist(String username) {
+		if (userRepo.findByUsernameAndDeletedFalse(username) == null)
+			return true;
+		return false;
+	}
+	
 }

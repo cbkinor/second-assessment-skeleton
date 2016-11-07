@@ -9,7 +9,5 @@ import cooksys.entity.HashTag;
 public interface HashTagRepo extends JpaRepository <HashTag, Long> {
 
 	List<HashTag> findAll();
-
-
-
+	
 }

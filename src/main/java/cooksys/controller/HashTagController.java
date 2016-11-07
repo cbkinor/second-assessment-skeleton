@@ -26,5 +26,5 @@ public class HashTagController {
     public List<HashTag> getHashTag() {
     	return hashTagService.getAll();
     }
-    
+ 
 }
