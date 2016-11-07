@@ -99,6 +99,12 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findByUsername(username).getTweets();
 	}
 
+	@Override
+	public List<Tweet> getMentions(String username) {
+		User user = userRepo.findByUsername(username);
+		return user.getMentioned();
+	}
+
 }
 
 

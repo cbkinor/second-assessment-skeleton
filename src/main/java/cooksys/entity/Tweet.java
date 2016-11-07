@@ -34,6 +34,10 @@ public class Tweet {
 	@ManyToMany(mappedBy = "tweets")
 	private List<HashTag> hashTags;
 	
+	@ManyToMany(mappedBy = "mentioned")
+	@JsonIgnore
+	private List<User>mentions;
+	
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
 	private Date posted;
 	
@@ -60,14 +64,6 @@ public class Tweet {
 
 	public void setAuthor(User author) {
 		this.author = author;
-	}
-
-	public List<HashTag> getHashs() {
-		return hashTags;
-	}
-
-	public void setHashs(List<HashTag> hashTags) {
-		this.hashTags = hashTags;
 	}
 
 	public Date getPosted() {
@@ -108,6 +104,22 @@ public class Tweet {
 
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+
+	public List<HashTag> getHashTags() {
+		return hashTags;
+	}
+
+	public void setHashTags(List<HashTag> hashTags) {
+		this.hashTags = hashTags;
+	}
+
+	public List<User> getMentions() {
+		return mentions;
+	}
+
+	public void setMentions(List<User> mentions) {
+		this.mentions = mentions;
 	}
 
 	

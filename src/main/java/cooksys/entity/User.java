@@ -54,6 +54,13 @@ public class User {
 	@ManyToMany(mappedBy = "followers")
 	@JsonIgnore
 	private List<User> following;
+	
+	@ManyToMany
+	@JoinTable(name = "Mentions",
+	joinColumns= @JoinColumn(name = "user_id"),
+	inverseJoinColumns = @JoinColumn(name = "tweet_id"))
+	@JsonIgnore
+	private List<Tweet> mentioned;
 
 	public long getId() {
 		return id;
@@ -125,6 +132,14 @@ public class User {
 
 	public void setCredential(Credential credential) {
 		this.credential = credential;
+	}
+
+	public List<Tweet> getMentioned() {
+		return mentioned;
+	}
+
+	public void setMentioned(List<Tweet> mentioned) {
+		this.mentioned = mentioned;
 	}
 
 	

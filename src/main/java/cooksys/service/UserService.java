@@ -35,5 +35,7 @@ public interface UserService {
 
 	public List<Tweet> getTweets(String username);
 
+	public List<Tweet> getMentions(String username);
+
 	
 }

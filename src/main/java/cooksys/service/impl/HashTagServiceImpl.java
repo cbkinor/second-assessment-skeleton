@@ -19,7 +19,6 @@ public class HashTagServiceImpl implements HashTagService {
 
 	@Override
 	public List<HashTag> getAll() {
-		// TODO Auto-generated method stub
 		return hashTagRepo.findAll();
 		
 		
