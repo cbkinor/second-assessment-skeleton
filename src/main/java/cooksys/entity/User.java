@@ -57,10 +57,16 @@ public class User {
 	
 	@ManyToMany
 	@JoinTable(name = "Mentions",
-	joinColumns= @JoinColumn(name = "user_id"),
-	inverseJoinColumns = @JoinColumn(name = "tweet_id"))
+		joinColumns= @JoinColumn(name = "user_id"),
+		inverseJoinColumns = @JoinColumn(name = "tweet_id"))
 	@JsonIgnore
 	private List<Tweet> mentioned;
+	
+	@ManyToMany
+    @JoinTable(name = "user_likes",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "tweet_id"))
+    private List<Tweet> likedTweets;
 
 	public long getId() {
 		return id;
@@ -141,6 +147,16 @@ public class User {
 	public void setMentioned(List<Tweet> mentioned) {
 		this.mentioned = mentioned;
 	}
+
+	public List<Tweet> getLikedTweets() {
+		return likedTweets;
+	}
+
+	public void setLikedTweets(List<Tweet> likedTweets) {
+		this.likedTweets = likedTweets;
+	}
+
+
 
 	
 }

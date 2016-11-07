@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cooksys.entity.Credential;
 import cooksys.entity.Tweet;
 import cooksys.entity.User;
 import cooksys.service.TweetService;
@@ -44,5 +45,14 @@ public class TweetController {
     	 return tweetService.delete(id);
     }
    
+    @PostMapping("/{id}/like")
+    public void likeTweet(@PathVariable String id, @RequestBody Credential credential) {
+        tweetService.likeTweet(Long.parseLong(id),credential);
+    }
+    
+    @GetMapping("/{id}/likes")
+    public List<User> getLikes(@PathVariable String id) {
+        return tweetService.getTweetLikes(Long.parseLong(id));
+    }
     
 }

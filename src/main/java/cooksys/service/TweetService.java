@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import cooksys.entity.Credential;
 import cooksys.entity.HashTag;
 import cooksys.entity.Tweet;
+import cooksys.entity.User;
 import cooksys.repository.HashTagRepo;
 import cooksys.repository.TweetRepo;
 
@@ -19,6 +21,10 @@ public interface TweetService {
 	public Tweet create(Tweet tweet);
 
 	public Tweet delete(Long id);
+
+	public void likeTweet(long id, Credential credential);
+
+	public List<User> getTweetLikes(long id);
 	
 	
 

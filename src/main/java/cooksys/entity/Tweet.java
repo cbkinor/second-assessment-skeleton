@@ -38,6 +38,10 @@ public class Tweet {
 	@JsonIgnore
 	private List<User>mentions;
 	
+	@ManyToMany(mappedBy = "likedTweets")
+	@JsonIgnore
+	private List<User> Likes;
+	
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
 	private Date posted;
 	
@@ -122,6 +126,15 @@ public class Tweet {
 		this.mentions = mentions;
 	}
 
+	public List<User> getLikes() {
+		return Likes;
+	}
+
+	public void setLikes(List<User> likes) {
+		Likes = likes;
+	}
+
+	
 	
 
 }
