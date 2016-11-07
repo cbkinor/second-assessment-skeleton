@@ -23,4 +23,10 @@ public class HashTagServiceImpl implements HashTagService {
 		return hashTagRepo.findAll();
 	}
 
+	@Override
+    public List<Tweet> getTweetWithHashtag(String hashtag) {
+        HashTag hashTag = hashTagRepo.findByHashtag(hashtag);
+        return hashTag.getTweets();
+    }
+
 }

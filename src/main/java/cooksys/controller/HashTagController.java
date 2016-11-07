@@ -27,4 +27,8 @@ public class HashTagController {
     	return hashTagService.getAll();
     }
  
+    @GetMapping("/{label}")
+    public List<Tweet> getLabels(@PathVariable String label) {
+        return hashTagService.getTweetWithHashtag(label);
+    }
 }

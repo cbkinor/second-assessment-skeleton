@@ -23,8 +23,8 @@ public class Tweet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(insertable = false, updatable = true, nullable = false)
-	private boolean deleted;
+	@Column(updatable = true, nullable = false)
+	private boolean deleted = false;
 	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="author")

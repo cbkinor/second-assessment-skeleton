@@ -30,8 +30,8 @@ public class User {
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = true)
 	private Date joined;
 	
-	@Column(insertable = false, updatable = true, nullable = false)
-	private boolean deleted;
+	@Column(updatable = true, nullable = false)
+	private boolean deleted = false;
 	
 	 @OneToOne
     @JoinColumn(nullable = false)
