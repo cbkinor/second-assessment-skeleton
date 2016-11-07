@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import cooksys.entity.HashTag;
 
-public interface HashTagRepo extends JpaRepository <HashTag, Long> {
+public interface HashTagRepo extends JpaRepository<HashTag, Long> {
 
 	List<HashTag> findAll();
 	
+	HashTag findByHashtag(String hashtag);
 }

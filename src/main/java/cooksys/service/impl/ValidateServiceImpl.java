@@ -23,5 +23,21 @@ public class ValidateServiceImpl implements ValidateService {
 			return true;
 		return false;
 	}
+
+	@Override
+	public boolean isUsernameAvailable(String username) {
+		if (userRepo.findByUsernameAndDeletedFalse(username) == null)
+			return true;
+		return false;
+	}
+
+
+	 @Override
+	    public boolean doesHashTagExist(String hashtag) {
+	        if (hashTagRepo.findByHashtag(hashtag) == null)
+	            return false;
+	        return true;
+	    }
+
 	
 }

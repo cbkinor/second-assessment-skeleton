@@ -24,7 +24,7 @@ public class HashTag {
 	private long id;
 	
 	@Column(updatable = false, nullable = false)
-	private String hashTag;
+	private String hashtag;
 	
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
 	private Date firstUsed;
@@ -47,12 +47,12 @@ public class HashTag {
 		this.id = id;
 	}
 
-	public String getHashTag() {
-		return hashTag;
+	public String getHashtag() {
+		return hashtag;
 	}
 
-	public void setHashTag(String hashTag) {
-		this.hashTag = hashTag;
+	public void setHashtag(String hashtag) {
+		this.hashtag = hashtag;
 	}
 
 	public Date getFirstUsed() {
